@@ -1,0 +1,56 @@
+<div class="container mx-auto p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-gray-500 text-sm">Total Communications</h3>
+      <p class="text-2xl font-bold"><%= @total_communications %></p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-gray-500 text-sm">Avg Response Time</h3>
+      <p class="text-2xl font-bold"><%= @avg_response_time.round(1) %>h</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-gray-500 text-sm">Satisfaction Rate</h3>
+      <p class="text-2xl font-bold"><%= @satisfaction_rate %>%</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-gray-500 text-sm">Patient Engagement</h3>
+      <p class="text-2xl font-bold"><%= @engagement_rate %>%</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-4">Retention by Personality Type</h2>
+      <canvas data-dashboard-target="retentionChart"></canvas>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-4">Response Analysis</h2>
+      <canvas data-dashboard-target="responseChart"></canvas>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-4">Communication Timing</h2>
+      <canvas data-dashboard-target="timingChart"></canvas>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-4">Personality Insights</h2>
+      <div class="space-y-4">
+        <% @personality_types.each do |type| %>
+          <div class="border rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-medium"><%= type.name %></h3>
+              <span class="text-sm text-gray-500">
+                Count: <%= type.patients.count %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
