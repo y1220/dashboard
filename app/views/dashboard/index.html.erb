@@ -1,5 +1,9 @@
+
 <div class="container mx-auto p-4">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div data-controller="barchart">
+      <canvas id="bar-chart" data-barchart-target="myChart" width="800" height="450"></canvas>
+    </div>
     <div class="bg-white p-6 rounded-lg shadow">
       <h3 class="text-gray-500 text-sm">Total Communications</h3>
       <p class="text-2xl font-bold"><%= @total_communications %></p>

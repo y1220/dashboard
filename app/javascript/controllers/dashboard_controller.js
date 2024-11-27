@@ -1,14 +1,16 @@
-import { Controller } from "@hotwired/stimulus-loading";
-import { Chart } from "chart.js/auto";
+import { Controller } from "@hotwired/stimulus";
+import { Chart } from "chart.js";
 
 export default class extends Controller {
   static targets = ["retentionChart", "responseChart", "timingChart"];
 
   connect() {
+    console.log("Dashboard controller connected");
     this.loadCharts();
   }
 
   async loadCharts() {
+    console.log("Loading charts");
     const [communications, retentionRates, personalityTypes] =
       await Promise.all([
         this.fetchCommunications(),

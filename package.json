@@ -1,11 +1,7 @@
 {
+  "name": "intakecare-dashboard",
+  "private": true,
   "dependencies": {
     "chart.js": "^4.4.6"
-  },
-  "devDependencies": {
-    "esbuild": "^0.24.0"
-  },
-  "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/turbo-rails --external:@hotwired/stimulus"
   }
 }
