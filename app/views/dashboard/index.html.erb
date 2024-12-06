@@ -4,42 +4,7 @@
     <div data-controller="barchart">
       <canvas id="bar-chart" data-barchart-target="myChart" width="800" height="450"></canvas>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-gray-500 text-sm">Total Communications</h3>
-      <p class="text-2xl font-bold"><%= @total_communications %></p>
-    </div>
 
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-gray-500 text-sm">Avg Response Time</h3>
-      <p class="text-2xl font-bold"><%= @avg_response_time.round(1) %>h</p>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-gray-500 text-sm">Satisfaction Rate</h3>
-      <p class="text-2xl font-bold"><%= @satisfaction_rate %>%</p>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-gray-500 text-sm">Patient Engagement</h3>
-      <p class="text-2xl font-bold"><%= @engagement_rate %>%</p>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-bold mb-4">Retention by Personality Type</h2>
-      <canvas data-dashboard-target="retentionChart"></canvas>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-bold mb-4">Response Analysis</h2>
-      <canvas data-dashboard-target="responseChart"></canvas>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-bold mb-4">Communication Timing</h2>
-      <canvas data-dashboard-target="timingChart"></canvas>
-    </div>
 
     <div class="bg-white p-6 rounded-lg shadow">
       <h2 class="text-xl font-bold mb-4">Personality Insights</h2>
