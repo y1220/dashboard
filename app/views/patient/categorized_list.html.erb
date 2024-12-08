@@ -8,35 +8,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>John Doe</td>
-            <td>john.doe@example.com</td>
-            <td>Male</td>
-            <td>Bachelor of Science in Computer Science</td>
-        </tr>
-        <tr>
-            <td>Jane Smith</td>
-            <td>jane.smith@example.com</td>
-            <td>Female</td>
-            <td>Master of Business Administration</td>
-        </tr>
-        <tr>
-            <td>Alex Johnson</td>
-            <td>alex.j@example.com</td>
-            <td>Non-binary</td>
-            <td>PhD in Psychology</td>
-        </tr>
-        <tr>
-            <td>Sarah Williams</td>
-            <td>sarah.w@example.com</td>
-            <td>Female</td>
-            <td>Master of Arts in Education</td>
-        </tr>
-        <tr>
-            <td>Michael Brown</td>
-            <td>michael.b@example.com</td>
-            <td>Male</td>
-            <td>Bachelor of Engineering</td>
-        </tr>
+        <% for patient in @patients %>
+            <tr>
+                <td><%= patient.name %></td>
+                <td><%= patient.email %></td>
+                <td>Male</td>
+                <td>Bachelor of Science in Computer Science</td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
+<div>
+    <%= link_to 'Back', root_path(tab: @id), class: 'fancy-button' %>
+</div>
