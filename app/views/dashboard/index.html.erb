@@ -32,6 +32,9 @@
                   <div class="mt-4">
                     <h3 class="text-xl font-semibold text-gray-900"><%= persona[:name] %></h3>
                     <p class="mt-2 text-gray-600"><%= persona[:description] %></p>
+                    <div class="mt-4">
+                      <%= link_to "View Patients", "/patient/categorized_list/#{persona[:id]}", class: "text-blue-500 hover:underline" %>
+                    </div>
                   </div>
                 </div>
               </div>

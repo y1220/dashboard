@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'patient/categorized_list/:id', to: 'patient#categorized_list'
   root 'dashboard#index'
 
   namespace :api do
