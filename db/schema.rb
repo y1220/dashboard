@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_25_212544) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_08_180135) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.text "text_value"
+    t.integer "numerical_value"
+    t.integer "option_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
   create_table "communications", force: :cascade do |t|
     t.integer "patient_id"
     t.text "content"
@@ -38,6 +48,31 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_25_212544) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_options", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "field_value"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_options_on_question_id"
+  end
+
+  create_table "questionnaires", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "questionnaire_id", null: false
+    t.string "content"
+    t.string "field_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
+  end
+
   create_table "retention_rates", force: :cascade do |t|
     t.integer "personality_type_id"
     t.integer "month"
@@ -47,7 +82,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_25_212544) do
     t.index ["personality_type_id"], name: "index_retention_rates_on_personality_type_id"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "communications", "patients"
   add_foreign_key "patients", "personality_types"
+  add_foreign_key "question_options", "questions"
+  add_foreign_key "questions", "questionnaires"
   add_foreign_key "retention_rates", "personality_types"
 end
