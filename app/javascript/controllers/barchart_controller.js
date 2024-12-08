@@ -4,10 +4,10 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 export default class extends Controller {
-  static targets = ["myChart"];
+  static targets = ["personaChart"];
 
   canvasContext() {
-    return this.myChartTarget.getContext("2d");
+    return this.personaChartTarget.getContext("2d");
   }
 
   connect() {
