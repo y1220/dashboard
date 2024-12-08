@@ -1,5 +1,11 @@
 class DashboardController < ApplicationController
   def index
+    @personas = [
+      { id: 1, name: "Persona 1", description: "Details about Persona 1" },
+      { id: 2, name: "Persona 2", description: "Details about Persona 2" },
+      { id: 3, name: "Persona 3", description: "Details about Persona 3" }
+    ]
+    @active_tab = params[:tab] || "1"
     @personality_types = PersonalityType.all
     @total_communications = Communication.count
     @avg_response_time = Communication.average(:response_time)

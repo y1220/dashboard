@@ -4,17 +4,39 @@
     <div data-controller="barchart">
       <canvas id="bar-chart" data-barchart-target="personaChart" width="800" height="450"></canvas>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-bold mb-4">Personas</h2>
-      <div class="flex space-x-4">
-        <div class="border rounded-lg p-4">
-          <%= image_tag 'Persona1.png', alt: 'Persona 1', class: 'w-1/3 h-auto rounded-lg' %>
+    <div class="container mx-auto p-4">
+      <div class="tabs-container">
+        <%# Tabs Navigation %>
+        <div class="border-b border-gray-200">
+          <nav class="flex -mb-px" aria-label="Tabs">
+            <% @personas.each do |persona| %>
+              <%= link_to root_path(tab: persona[:id]),
+                  class: "tab-link #{@active_tab == persona[:id].to_s ? 'active-tab' : 'inactive-tab'}",
+                  data: { turbo: false } do %>
+                <span><%= persona[:name] %></span>
+              <% end %>
+            <% end %>
+          </nav>
         </div>
-        <div class="border rounded-lg p-4">
-          <%= image_tag 'Persona2.png', alt: 'Persona 2', class: 'w-1/3 h-auto rounded-lg' %>
-        </div>
-        <div class="border rounded-lg p-4">
-          <%= image_tag 'Persona3.png', alt: 'Persona 3', class: 'w-1/3 h-auto rounded-lg' %>
+
+        <%# Tab Content %>
+        <div class="mt-4">
+          <% @personas.each do |persona| %>
+            <div id="persona-<%= persona[:id] %>"
+                class="tab-content <%= @active_tab == persona[:id].to_s ? 'block' : 'hidden' %>">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-6">
+                  <%= image_tag "Persona#{persona[:id]}.png",
+                              alt: persona[:name],
+                              class: "w-full h-auto rounded-lg" %>
+                  <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-gray-900"><%= persona[:name] %></h3>
+                    <p class="mt-2 text-gray-600"><%= persona[:description] %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
