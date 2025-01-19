@@ -1,11 +1,55 @@
 
 <div class="container">
+    <!-- Search and Filter Section -->
+    <div class="filter-section">
+    <div class="search-container">
+        <%= form_tag "/patient/categorized_list/#{params[:id]}", method: :get, class: "filter-form" do %>
+        <div class="filter-grid">
+            <!-- Name Search -->
+            <div class="filter-item">
+            <label for="search_name">Name</label>
+            <%= text_field_tag :name, params[:name], class: "filter-input", placeholder: "Search by name..." %>
+            </div>
+
+            <!-- Gender Filter -->
+            <div class="filter-item">
+            <label for="gender">Gender</label>
+            <%= select_tag :gender,
+                options_for_select([
+                    ['All', ''],
+                    ['Male', 'Male'],
+                    ['Female', 'Female'],
+                    ['Other', 'Other']
+                ], params[:gender]),
+                class: "filter-input" %>
+            </div>
+
+            <!-- Age Range -->
+            <div class="filter-item">
+            <label>Age Range</label>
+            <div class="age-range">
+                <%= number_field_tag :age_from, params[:age_from], class: "filter-input small", placeholder: "From" %>
+                <span>-</span>
+                <%= number_field_tag :age_to, params[:age_to], class: "filter-input small", placeholder: "To" %>
+            </div>
+            </div>
+
+            <!-- Search Button -->
+            <div class="button-container">
+            <%= submit_tag "Search", class: "search-button" %>
+            <%= link_to "Clear", "/patient/categorized_list/#{params[:id]}", class: "clear-button" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    </div>
     <table>
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Gender</th>
+                <th>Age</th>
                 <th>Educational Background</th>
             </tr>
         </thead>
@@ -14,7 +58,8 @@
                 <tr>
                     <td><%= patient.name %></td>
                     <td><%= patient.email %></td>
-                    <td>Male</td>
+                    <td><%= patient.gender %></td>
+                    <td><%= Date.today.year - patient.birthday.year %></td>
                     <td>Bachelor of Science in Computer Science</td>
                 </tr>
             <% end %>
