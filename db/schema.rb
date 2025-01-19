@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_08_180135) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_19_225102) do
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
     t.text "text_value"
@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_08_180135) do
     t.integer "personality_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.date "birthday"
     t.index ["email"], name: "index_patients_on_email", unique: true
     t.index ["personality_type_id"], name: "index_patients_on_personality_type_id"
   end

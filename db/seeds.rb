@@ -164,3 +164,18 @@ PersonalityType.all.each do |type|
   puts "  #{type.name}: #{type.patients.count}"
 end
 puts "\nSeeding completed successfully!"
+
+require 'faker'
+
+# Define possible genders
+genders = ['Male', 'Female', 'Other']
+
+# Update existing patients with random gender and birthday
+Patient.find_each do |patient|
+  patient.update(
+    gender: genders.sample,
+    birthday: Faker::Date.between(from: 70.years.ago, to: 50.years.ago)
+  )
+end
+
+puts "Updated #{Patient.count} patients with random gender and birthday."

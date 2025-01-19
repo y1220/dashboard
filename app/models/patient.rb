@@ -4,4 +4,6 @@ class Patient < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :gender, presence: true
+  validates :birthday, presence: true
 end
