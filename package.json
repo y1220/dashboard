@@ -2,6 +2,7 @@
   "name": "intakecare-dashboard",
   "private": true,
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.6"
   }
 }

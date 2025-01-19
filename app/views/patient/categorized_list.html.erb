@@ -1,23 +1,29 @@
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Educational Background</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for patient in @patients %>
+
+<div class="container">
+    <table>
+        <thead>
             <tr>
-                <td><%= patient.name %></td>
-                <td><%= patient.email %></td>
-                <td>Male</td>
-                <td>Bachelor of Science in Computer Science</td>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Educational Background</th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
-<div>
-    <%= link_to 'Back', root_path(tab: @id), class: 'fancy-button' %>
+        </thead>
+        <tbody>
+            <% for patient in @patients %>
+                <tr>
+                    <td><%= patient.name %></td>
+                    <td><%= patient.email %></td>
+                    <td>Male</td>
+                    <td>Bachelor of Science in Computer Science</td>
+                </tr>
+            <% end %>
+            <div>
+                <%= paginate @patients %>
+            </div>
+        </tbody>
+    </table>
+    <div>
+        <%= link_to 'Back', root_path(tab: @id), class: 'fancy-button' %>
+    </div>
 </div>
