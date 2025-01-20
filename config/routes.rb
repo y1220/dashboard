@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'questionnaire/index'
   get 'patient/categorized_list/:id', to: 'patient#categorized_list'
   root 'dashboard#index'
 
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     resources :personality_types, only: [:index] do
       collection do
         get 'persona_statistics'
+        get 'patient_satisfaction'
       end
     end
     resources :retention_rates, only: [:index]

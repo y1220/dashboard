@@ -22,6 +22,15 @@ padding: 1rem;
 
 .persona-chart {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart {
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 /* Tabs container */
