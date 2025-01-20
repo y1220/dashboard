@@ -20,6 +20,10 @@ margin: 0 auto;
 padding: 1rem;
 }
 
+.persona-chart {
+  width: 50%;
+}
+
 /* Tabs container */
 .tabs-container {
 width: 100%;
@@ -240,12 +244,6 @@ tbody tr:hover {
 .button-container {
     margin: 20px 0;
     padding: 10px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
 }
 
 /* Main pagination container */
@@ -471,3 +469,116 @@ tbody tr:hover {
     padding: 8px 0;
     border-bottom: 2px solid #e2e8f0;  /* Light gray border bottom */
   }
+
+  /* app/assets/stylesheets/navbar.css */
+.navbar {
+  background-color: #2196F3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  padding: 0.5rem 0;
+}
+
+.brand-link {
+  text-decoration: none;
+}
+
+.brand-text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.user-name {
+  color: white;
+}
+
+.logout-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.login-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.login-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+}

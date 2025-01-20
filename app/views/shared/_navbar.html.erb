@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <%= link_to root_path, class: "brand-link" do %>
+        <span class="brand-text">Intakecare Personas</span>
+      <% end %>
+    </div>
+
+    <div class="nav-links">
+      <%= link_to "Persona 1", "/patient/categorized_list/1", class: "nav-link #{current_page?("/patient/categorized_list/1") ? 'active' : ''}" %>
+      <%= link_to "Persona 2", "/patient/categorized_list/2", class: "nav-link #{current_page?("/patient/categorized_list/2") ? 'active' : ''}" %>
+      <%= link_to "Persona 3", "/patient/categorized_list/3", class: "nav-link #{current_page?("/patient/categorized_list/3") ? 'active' : ''}" %>
+    </div>
+
+    <div class="nav-auth">
+        <div class="user-menu">
+            <%= link_to "Questionnarie", questionnaire_index_path, class: "nav-link #{current_page?(questionnaire_index_path) ? 'active' : ''}" %>
+        </div>
+    </div>
+  </div>
+</nav>
