@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_01_19_225102) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_20_215211) do
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
     t.text "text_value"
@@ -68,10 +68,13 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_19_225102) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "questionnaire_id", null: false
-    t.string "content"
+    t.string "field_label"
     t.string "field_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "record_id"
+    t.string "field_key"
+    t.boolean "required", default: false, null: false
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
