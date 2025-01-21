@@ -57,7 +57,7 @@
         <tbody>
             <% for patient in @patients %>
                 <tr>
-                    <td><%= patient.name %></td>
+                    <td><%= link_to patient.name, "/questionnaire/show/#{patient.id}" %></td>
                     <td><%= patient.email %></td>
                     <td><%= patient.gender %></td>
                     <td><%= Date.today.year - patient.birthday.year %></td>

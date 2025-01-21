@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'questionnaire/index'
+  get 'questionnaire/index', to: 'questionnaire#index'
+  get 'questionnaire/show/:id', to: 'questionnaire#show'
   get 'patient/categorized_list/:id', to: 'patient#categorized_list'
   root 'dashboard#index'
 
