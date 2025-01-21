@@ -38,6 +38,7 @@
             <!-- Search Button -->
             <div class="button-container">
             <%= submit_tag "Search", class: "search-button" %>
+            <%= link_to "Export", patient_export_path(format: :csv), class: "export-button" %>
             <%= link_to "Clear", "/patient/categorized_list/#{params[:id]}", class: "clear-button" %>
             </div>
         </div>
