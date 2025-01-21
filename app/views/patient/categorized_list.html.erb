@@ -48,20 +48,20 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Email</th>
                 <th>Gender</th>
                 <th>Age</th>
                 <th>Educational Background</th>
+                <th>Living Arrangement</th>
             </tr>
         </thead>
         <tbody>
             <% for patient in @patients %>
                 <tr>
                     <td><%= link_to patient.name, "/questionnaire/show/#{patient.id}" %></td>
-                    <td><%= patient.email %></td>
                     <td><%= patient.gender %></td>
                     <td><%= Date.today.year - patient.birthday.year %></td>
-                    <td>Bachelor of Science in Computer Science</td>
+                    <td><%= QuestionOption.where(question_id: 6, field_value: Answer.where(patient_id: patient.id, question_id: 6).first&.option_id).first&.content %></td>
+                    <td><%= QuestionOption.where(question_id: 4, field_value: Answer.where(patient_id: patient.id, question_id: 4).first&.option_id).first&.content %></td>
                 </tr>
             <% end %>
             <div>
