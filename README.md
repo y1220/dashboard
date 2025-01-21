@@ -1,24 +1,48 @@
-# README
+# Persona Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails application for managing personas, including searching and exporting persona data.
 
-Things you may want to cover:
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Search and Filter](#search-and-filter)
+- [Export Data](#export-data)
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/y1220/dashboard.git
+    cd dashboard
+    ```
 
-* Configuration
+2. **Install the required gems:**
+    ```sh
+    bundle install
+    ```
 
-* Database creation
+3. **Set up the database:**
+    ```sh
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    ```
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+To start the Rails server:
+```sh
+rails server
+```
+Navigate to http://localhost:3000 in your web browser to use the application.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Search and Filter
 
-* Deployment instructions
+The application supports filtering personas based on the following criteria:
+- **Name:** Search for personas by their name.
+- **Gender:** Filter personas by gender.
+- **Age:** Filter personas within a specific age range.
 
-* ...
+## Export Data
+
+You can export persona data to a CSV file. To do this, navigate to the export page and click the "Export" button. The data will be downloaded to
