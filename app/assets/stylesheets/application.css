@@ -20,6 +20,64 @@ margin: 0 auto;
 padding: 1rem;
 }
 
+.flash-container {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.flash-message {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+.flash-success {
+  background-color: #e6ffec;
+  border: 1px solid #b6e9c1;
+  color: #1a7431;
+}
+
+.flash-error {
+  background-color: #ffebe9;
+  border: 1px solid #ffcdd2;
+  color: #cf222e;
+}
+
+/* Animation for flash messages */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover effect */
+.flash-message:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .flash-container {
+    margin: 0.5rem auto;
+  }
+
+  .flash-message {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
 .persona-chart {
   width: 50%;
   display: flex;
@@ -612,4 +670,233 @@ tbody tr:hover {
 
 .export-button:hover {
   background-color: #005f73;
+}
+
+/* Container styling */
+.upload-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h2 {
+  color: #333333;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Form styling */
+.upload-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* File input styling */
+.file-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px dashed #cccccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.file-input:hover {
+  border-color: #666666;
+}
+
+/* Submit button styling */
+.submit-button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #357abd;
+}
+
+/* Alert styling */
+.alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.error {
+  background-color: #ffe6e6;
+  border: 1px solid #ffb3b3;
+  color: #cc0000;
+}
+
+.success {
+  background-color: #e6ffe6;
+  border: 1px solid #b3ffb3;
+  color: #006600;
+}
+
+/* Result container styling */
+.result-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.result-container h3 {
+  color: #333333;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.result-container p {
+  color: #666666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .upload-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
+
+.result-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.timestamp-container, .result-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-box, .result-box {
+  width: 100%;
+}
+
+h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #eef2f7;
+  padding-bottom: 0.5rem;
+}
+
+.info-item, .persona-result {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f8fafc;
+  border-radius: 4px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  flex: 0 0 180px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.value {
+  color: #334155;
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #2563eb;
+}
+
+/* Animation for content */
+.timestamp-container, .result-box {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .result-page {
+    margin: 1rem auto;
+  }
+
+  .info-item, .persona-result {
+    flex-direction: column;
+  }
+
+  .label {
+    flex: none;
+    margin-bottom: 0.3rem;
+  }
+
+  .value {
+    padding-left: 0;
+  }
+
+  .back-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Additional styling for the persona result */
+.result-box .persona-result {
+  background-color: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.result-box .value {
+  font-size: 1.2rem;
+  color: #1e40af;
 }

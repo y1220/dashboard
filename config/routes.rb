@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   get 'questionnaire/show/:id', to: 'questionnaire#show'
   get 'patient/categorized_list/:id', to: 'patient#categorized_list'
   get 'patient/export', to: 'patient#export'
+
+  get 'persona/upload', to: 'persona#upload', as: 'upload_persona'
+  get 'persona/result', to: 'persona#result', as: 'result_persona'
+  post 'persona/import', to: 'persona#import', as: 'import_persona'
+
+
+  
   root 'dashboard#index'
 
   namespace :api do

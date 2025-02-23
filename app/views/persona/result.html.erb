@@ -1,0 +1,13 @@
+<div class="result-page">
+  <% if @persona_type %>
+    <div class="result-box">
+      <h3>Analysis Result</h3>
+      <div class="persona-result">
+        <span class="label">Persona Type:</span>
+        <span class="value"><%= @persona_type %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to 'Upload New File', upload_persona_path, class: 'back-button' %>
+</div>

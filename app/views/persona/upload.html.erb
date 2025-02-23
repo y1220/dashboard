@@ -1,0 +1,17 @@
+<div class="upload-container">
+  <h2>Upload CSV File</h2>
+
+  <%= form_tag import_persona_path, multipart: true, class: 'upload-form' do %>
+    <div class="form-group">
+      <%= file_field_tag :file, accept: '.csv', class: 'file-input' %>
+    </div>
+
+    <%= submit_tag "Process CSV", class: 'submit-button' %>
+  <% end %>
+
+  <% if flash[:error] %>
+    <div class="alert error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
