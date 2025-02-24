@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get 'persona/upload', to: 'persona#upload', as: 'upload_persona'
   get 'persona/result', to: 'persona#result', as: 'result_persona'
   post 'persona/import', to: 'persona#import', as: 'import_persona'
+  get 'search_patients', to: 'persona#result', as: 'search_patients'
 
+  post 'patient/assign_persona_type/:id', to: 'patient#assign_persona_type', as: 'assign_persona_type'
 
-  
   root 'dashboard#index'
 
   namespace :api do

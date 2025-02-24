@@ -1,0 +1,18 @@
+<div class="results-list">
+  <%
+  if patients&.any? %>
+    <% patients.each do |patient| %>
+      <div class="patient-card">
+        <div class="patient-info">
+          <span class="patient-name"><%= patient.name %></span>
+          <span class="patient-id">ID: <%= patient.id %></span>
+        </div>
+        <%= button_to 'Assign Persona', assign_persona_type_path(patient.id, persona_type: params[:persona_type]), method: :post, class: 'assign-button' %>
+      </div>
+    <% end %>
+  <% elsif params[:query].present? %>
+    <div class="no-results">
+      No patients found matching "<%= params[:query] %>"
+    </div>
+  <% end %>
+</div>

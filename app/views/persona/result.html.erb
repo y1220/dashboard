@@ -1,5 +1,19 @@
 <div class="result-page">
-  <% if @persona_type %>
+  <div class="mb-6 search-container">
+    <h2 class="text-xl mb-2">Patient Search</h2>
+    <%= form_tag search_patients_path, method: :get, data: { turbo_stream: true }, class: "flex search-input-group" do %>
+      <%= hidden_field_tag :persona_type, @persona_type %>
+      <%= text_field_tag :query, params[:query], class: "border p-2 rounded flex-grow", placeholder: "Search patients..." %>
+      <%= submit_tag "Search", class: "bg-blue-500 text-white px-3 py-1 rounded ml-2 hover:bg-blue-600 search-button" %>
+    <% end %>
+  </div>
+
+  <div id="search-results" class="info-container">
+    <%= render partial: 'persona/search_results', locals: { patients: @patients } %>
+  </div>
+
+  <%
+  if @persona_type %>
     <div class="result-box">
       <h3>Analysis Result</h3>
       <div class="persona-result">

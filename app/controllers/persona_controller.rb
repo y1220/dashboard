@@ -6,12 +6,25 @@ require 'json'
 class PersonaController < ApplicationController
   API_ENDPOINT = 'http://127.0.0.1:5000/predict'
   def upload
-    # This action will render the upload form
+    @persona_type = params[:persona_type]
   end
 
   def result
-    # This action will render the result page
     @persona_type = params[:persona_type]
+    # Handle search if query parameter is present
+    if params[:query].present?
+      @patients = search_patients(params[:query])
+      respond_to do |format|
+        format.html
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.update(
+            'search-results',
+            partial: 'persona/search_results',
+            locals: { patients: @patients }
+          )
+        }
+      end
+    end
   end
 
   def import
@@ -33,7 +46,11 @@ class PersonaController < ApplicationController
       flash[:error] = "Error processing file: #{e.message}"
     end
 
-    redirect_to result_persona_path(persona_type: @persona_type)
+    if @persona_type
+      redirect_to result_persona_path(persona_type: @persona_type)
+    else
+      redirect_to upload_persona_path
+    end
   end
 
   private
@@ -74,4 +91,9 @@ class PersonaController < ApplicationController
       raise "API call error: #{e.message}"
     end
   end
+
+  def search_patients(query)
+    Patient.where('name LIKE ?', "%#{query}%")
+  end
+
 end
