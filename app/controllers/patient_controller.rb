@@ -50,4 +50,23 @@ class PatientController < ApplicationController
       format.csv { send_data @patients.to_csv, filename: "Persona#{@id}#{@filter}_#{Time.now.strftime('%Y%m%d%H%M%S')}.csv" }
     end
   end
+
+  def assign_persona_type
+    @patient = Patient.find(params[:id])
+    byebug
+    @patient.personality_type_id = params[:persona_type]
+    if @patient.save
+      flash[:success] = 'Successfully assigned persona type'
+      respond_to do |format|
+        format.html { redirect_to result_persona_path(persona_type: @patient.personality_type_id) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("flash", partial: "shared/flash") }
+      end
+    else
+      flash[:error] = 'Failed to assign persona type'
+      respond_to do |format|
+        format.html { redirect_to result_persona_path(persona_type: @patient.personality_type_id) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("flash", partial: "shared/flash") }
+      end
+    end
+  end
 end
