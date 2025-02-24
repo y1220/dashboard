@@ -53,7 +53,6 @@ class PatientController < ApplicationController
 
   def assign_persona_type
     @patient = Patient.find(params[:id])
-    byebug
     @patient.personality_type_id = params[:persona_type]
     if @patient.save
       flash[:success] = 'Successfully assigned persona type'

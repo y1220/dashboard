@@ -6,5 +6,6 @@ import "bootstrap";
 import "@hotwired/turbo-rails";
 import "controllers";
 import "chart.js";
+import "@hotwired/turbo-rails"
 
 console.log("Stimulus application started");
