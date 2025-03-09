@@ -55,7 +55,7 @@ class PatientController < ApplicationController
     @patient = Patient.find(params[:id])
     @patient.personality_type_id = params[:persona_type]
     if @patient.save
-      flash[:success] = 'Successfully assigned persona type'
+      flash[:success] = 'Successfully assigned persona type ' + params[:persona_type] + ' to patient ' + @patient.name
       respond_to do |format|
         format.html { redirect_to result_persona_path(persona_type: @patient.personality_type_id) }
         format.turbo_stream { render turbo_stream: turbo_stream.replace("flash", partial: "shared/flash") }

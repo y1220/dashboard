@@ -59,9 +59,11 @@ class PersonaController < ApplicationController
     raise 'Invalid file format' unless file.content_type == 'text/csv'
 
     content = file.read
-    # Parse CSV and get the first row as integers
-    values = CSV.parse(content).first&.map(&:strip)&.map(&:to_i)
-
+    values = if content.start_with?('[')
+      JSON.parse(content)
+    else
+      CSV.parse(content).first&.map(&:strip)&.map(&:to_i)
+    end
     raise 'Invalid CSV format: Expected array of integers' if values.nil? || values.empty?
 
     values
@@ -76,7 +78,6 @@ class PersonaController < ApplicationController
     request = Net::HTTP::Post.new(uri.path, {
       'Content-Type' => 'application/json'
     })
-
     request.body = { test_data: data }.to_json
 
     begin
